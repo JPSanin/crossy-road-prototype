@@ -19,17 +19,17 @@ public class Main extends PApplet {
 	}
 
 	public void setup() {
-		
-	screen=1;
-	gv= new GameView(this);
-	String[] input= loadStrings("data/info.txt");
-	try {
-		gv.initializeElements(input);
-	}catch(NullPointerException npe) {
-		npe.printStackTrace();
-		System.out.println("The file was not found please check if it is in the data directory");
-	}
-	
+
+		screen=1;
+		gv= new GameView(this);
+		String[] input= loadStrings("data/info.txt");
+		try {
+			gv.initializeElements(input);
+		}catch(NullPointerException npe) {
+			npe.printStackTrace();
+			System.out.println("The file was not found please check if it is in the data directory");
+		}
+
 
 	}
 
@@ -41,9 +41,20 @@ public class Main extends PApplet {
 			break;
 
 		}
-		
-		
+
+
 		text(mouseX+", "+mouseY, mouseX, mouseY);
-		
+
 	}
+	
+	public void keyPressed() {
+		switch (screen) {
+		case 1:
+			gv.moveCharacter(key);
+			break;
+
+		}
+	}
+
+
 }

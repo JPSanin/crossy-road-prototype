@@ -166,6 +166,13 @@ public class Logic {
 		
 		mc.draw();
 	}
+
+	public void moveCharacter(char key) {
+		mc.move(key);
+		
+	}
+	
+	
 	
 
 }

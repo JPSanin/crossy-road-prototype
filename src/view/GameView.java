@@ -42,6 +42,12 @@ public class GameView {
 		controller.initializeElements(input);
 		controller.generateCars();		
 	}
+
+
+	public void moveCharacter(char key) {
+		controller.moveCharacter(key);
+		
+	}
 	
 	
 

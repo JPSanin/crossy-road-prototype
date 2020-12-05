@@ -16,7 +16,8 @@ public class MainCharacter extends Element{
 
 	
 	public void move(char key) {
-		switch(key) {
+		char keyC= Character.toLowerCase(key);
+		switch(keyC) {
 		case 'a':
 			moveLeft();
 			break;
@@ -34,18 +35,28 @@ public class MainCharacter extends Element{
 	
 	
 	private void moveRight() {
-		System.out.println("Right");
+		if(getPosX()+getWidth()/2<750) {
+			setPosX(getPosX()+(getVel()));
+		}
+		
 	}
 
 	private void moveLeft() {
-		System.out.println("Left");
+		if(getPosX()>50) {
+			setPosX(getPosX()-(getVel()));
+		}
 	}
 	private void moveUp() {
-		System.out.println("Up");
+		if(getPosY()>0) {
+			setPosY(getPosY()-(getVel()));
+		}
 
 	}
 	private void moveDown() {
-		System.out.println("Down");
+		if(getPosY()<600) {
+			setPosY(getPosY()+(getVel()));
+		}
+
 
 	}
 

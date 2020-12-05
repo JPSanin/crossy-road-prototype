@@ -40,6 +40,11 @@ public abstract class Element {
 		return posY;
 	}
 
+	
+	public void setPosY(int posY) {
+		this.posY = posY;
+	}
+
 	public int getDir() {
 		return dir;
 	}

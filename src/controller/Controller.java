@@ -25,4 +25,9 @@ public class Controller {
 		
 	}
 
+	public void moveCharacter(char key) {
+		logic.moveCharacter(key);
+		
+	}
+
 }
