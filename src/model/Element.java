@@ -8,20 +8,25 @@ public abstract class Element {
 	private int posY;
 	private int dir;
 	private int vel;
+	private int height;
+	private int width;
 	
 	private PApplet app;
 
-	public Element(int posX, int posY, int dir, int vel, PApplet app) {
+	
+	
+	public Element(int posX, int posY, int dir, int vel, int height, int width, PApplet app) {
 		this.posX = posX;
 		this.posY = posY;
 		this.dir = dir;
 		this.vel = vel;
+		this.height = height;
+		this.width = width;
 		this.app = app;
 	}
-	
+
 	public abstract void draw();
 	
-	public abstract void move();
 
 	public int getPosX() {
 		return posX;
@@ -37,6 +42,14 @@ public abstract class Element {
 
 	public int getVel() {
 		return vel;
+	}
+
+	public int getHeight() {
+		return height;
+	}
+
+	public int getWidth() {
+		return width;
 	}
 
 	public PApplet getApp() {
