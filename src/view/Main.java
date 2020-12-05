@@ -90,6 +90,16 @@ public class Main extends PApplet {
 	}
 
 	
+	public void mousePressed() {
+		switch (screen) {
+		
+		case 3:
+			sv.sortScores();
+			break;
+
+		}
+	}
+	
 
 
 }

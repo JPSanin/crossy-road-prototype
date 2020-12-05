@@ -57,4 +57,9 @@ public class Controller {
 		
 	}
 
+	public void sortScores(int sort) {
+		logic.sortScores(sort);
+		
+	}
+
 }

@@ -2,6 +2,7 @@ package model;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.Collections;
 
 import exceptions.LoseException;
 import processing.core.PApplet;
@@ -19,6 +20,8 @@ public class Logic {
 	ArrayList<Car> lane5;
 	ArrayList<Car> lane6;
 	
+	private DurationComparator dc;
+	
 	private PApplet app;
 	
 	private static Logic onlyInstance;
@@ -32,6 +35,9 @@ public class Logic {
 		lane4= new ArrayList<>();
 		lane5= new ArrayList<>();
 		lane6= new ArrayList<>();
+		dc=new DurationComparator();
+		
+	
 		this.app=app;
 	}
 	
@@ -270,11 +276,26 @@ public class Logic {
 		}
 		
 	}
+	
+	public void sortScores(int sort) {
+		switch (sort) {
+		case 1:
+			Collections.sort(players);
+			break;
+		case 2:
+			Collections.sort(players,dc);
+			break;
+		
+		}
+		
+	}
 
 	public void reset() {
 		mc.setPosX(400);
 		mc.setPosY(0);
 	}
+
+	
 	
 	
 

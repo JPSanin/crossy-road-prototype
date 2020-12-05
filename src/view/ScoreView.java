@@ -27,8 +27,20 @@ public class ScoreView {
 		app.text("Date and Time", 250, 40);
 		app.text("Game Duration", 550, 40);
 		app.textSize(16);
+		app.text("Click on title to sort", 400, 625);
 		app.text("Press P to play again", 400, 600);
 		controller.drawPlayers();
+	}
+	
+	
+	public void sortScores() {
+		if(app.mouseX>140 && app.mouseX<360 && app.mouseY>12 && app.mouseY<40) {
+			controller.sortScores(1);
+		}
+		
+		if(app.mouseX>435 && app.mouseX<665 && app.mouseY>12 && app.mouseY<40) {
+			controller.sortScores(2);
+		}
 	}
 	
 	public int changeScreen(char key) {
@@ -45,6 +57,6 @@ public class ScoreView {
 	public int getTime() {
 		return time;
 	}
-	
+
 	
 }
