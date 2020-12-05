@@ -8,6 +8,8 @@ public class Main extends PApplet {
 
 	private int screen;
 	private GameView gv;
+	private ResultView rv;
+	private ScoreView sv;
 
 	public static void main(String[] args) {
 		PApplet.main(Main.class.getName());
@@ -29,6 +31,8 @@ public class Main extends PApplet {
 			npe.printStackTrace();
 			System.out.println("The file was not found please check if it is in the data directory");
 		}
+		rv= new ResultView(this);
+		sv= new ScoreView(this);
 
 
 	}
@@ -38,6 +42,22 @@ public class Main extends PApplet {
 		switch (screen) {
 		case 1:
 			gv.drawScreen();
+			if(gv.isWin()) {
+				rv.setResult(true);
+				screen=2;
+			}
+			
+			if(gv.isLose()) {
+				rv.setResult(false);
+				screen=2;
+			}
+			
+			break;
+		case 2:
+			rv.drawScreen();
+			break;
+		case 3:
+			sv.drawScreen();
 			break;
 
 		}
@@ -52,9 +72,24 @@ public class Main extends PApplet {
 		case 1:
 			gv.moveCharacter(key);
 			break;
+		case 2:
+			screen=rv.changeScreen(key);
+			break;
+		case 3:
+			int temp=0;
+			temp=sv.changeScreen(key);
+			if(temp==1) {
+				gv.setLose(false);
+				gv.setWin(false);
+				gv.setScrapTime(sv.getTime());
+				screen=1;
+			}
+			break;
 
 		}
 	}
+
+	
 
 
 }

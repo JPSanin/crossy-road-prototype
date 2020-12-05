@@ -1,6 +1,7 @@
 package model;
 
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 import processing.core.PApplet;
 
@@ -8,6 +9,7 @@ public class Player implements Comparable<Player>{
 	
 	private LocalDateTime gameDateTime;
 	private int gameDuration;
+	private String gameDateTimeString;
 	
 	private PApplet app;
 
@@ -15,18 +17,27 @@ public class Player implements Comparable<Player>{
 		super();
 		this.gameDateTime = gameDateTime;
 		this.gameDuration = gameDuration;
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
+		gameDateTimeString= gameDateTime.format(formatter);
 		this.app = app;
 	}
 	
-	public void draw() {}
+	public void draw(int posY) {
+		app.fill(255);
+		app.textSize(16);
+		app.text(gameDateTimeString, 250, posY);
+		app.text(gameDuration+ " seconds", 550, posY);
+		
+	}
 
 	@Override
-	public int compareTo(Player arg0) {
-		// TODO Auto-generated method stub
-		return 0;
+	public int compareTo(Player p1) {
+		return gameDateTime.compareTo(p1.getGameDateTime());
 	}
 	
 
+	
+	
 	public LocalDateTime getGameDateTime() {
 		return gameDateTime;
 	}
@@ -41,6 +52,14 @@ public class Player implements Comparable<Player>{
 
 	public void setGameDuration(int gameDuration) {
 		this.gameDuration = gameDuration;
+	}
+
+	public String getGameDateTimeString() {
+		return gameDateTimeString;
+	}
+
+	public void setGameDateTimeString(String gameDateTimeString) {
+		this.gameDateTimeString = gameDateTimeString;
 	}
 
 	public PApplet getApp() {

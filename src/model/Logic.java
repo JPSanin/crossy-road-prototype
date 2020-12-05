@@ -1,7 +1,9 @@
 package model;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 
+import exceptions.LoseException;
 import processing.core.PApplet;
 
 public class Logic {
@@ -169,9 +171,110 @@ public class Logic {
 
 	public void moveCharacter(char key) {
 		mc.move(key);
+	}
+	
+	public void checkLose() throws LoseException{
+		
+		switch(mc.getPosY()) {
+		
+		case 50:
+			for (int i=0; i<lane1.size(); i++) {
+				int x1=mc.getPosX();
+				int y1=mc.getPosY();
+				int x2=lane1.get(i).getPosX()+lane1.get(i).getWidth()/2;
+				int y2=lane1.get(i).getPosY()+lane1.get(i).getHeight()/2;
+				if (PApplet.dist(x1,y1 ,x2 , y2)<mc.getWidth()/2+lane1.get(i).getWidth()/2) {
+					throw new LoseException();
+				}
+			}
+		
+			break;
+		case 150:
+			for (int i=0; i<lane2.size(); i++) {
+				int x1=mc.getPosX();
+				int y1=mc.getPosY();
+				int x2=lane2.get(i).getPosX()+lane2.get(i).getWidth()/2;
+				int y2=lane2.get(i).getPosY()+lane2.get(i).getHeight()/2;
+				if (PApplet.dist(x1,y1 ,x2 , y2)<mc.getWidth()/2+lane2.get(i).getWidth()/2) {
+					throw new LoseException();
+				}
+			}
+			break;
+		case 250:
+			for (int i=0; i<lane3.size(); i++) {
+				int x1=mc.getPosX();
+				int y1=mc.getPosY();
+				int x2=lane3.get(i).getPosX()+lane3.get(i).getWidth()/2;
+				int y2=lane3.get(i).getPosY()+lane3.get(i).getHeight()/2;
+				if (PApplet.dist(x1,y1 ,x2 , y2)<mc.getWidth()/2+lane3.get(i).getWidth()/2) {
+					throw new LoseException();
+				}
+			}
+			break;
+		case 350:
+			for (int i=0; i<lane4.size(); i++) {
+				int x1=mc.getPosX();
+				int y1=mc.getPosY();
+				int x2=lane4.get(i).getPosX()+lane4.get(i).getWidth()/2;
+				int y2=lane4.get(i).getPosY()+lane4.get(i).getHeight()/2;
+				if (PApplet.dist(x1,y1 ,x2 , y2)<mc.getWidth()/2+lane4.get(i).getWidth()/2) {
+					throw new LoseException();
+				}
+			}
+			break;
+		case 450:
+			for (int i=0; i<lane5.size(); i++) {
+				int x1=mc.getPosX();
+				int y1=mc.getPosY();
+				int x2=lane5.get(i).getPosX()+lane5.get(i).getWidth()/2;
+				int y2=lane5.get(i).getPosY()+lane5.get(i).getHeight()/2;
+				if (PApplet.dist(x1,y1 ,x2 , y2)<mc.getWidth()/2+lane5.get(i).getWidth()/2) {
+					throw new LoseException();
+				}
+			}
+			break;
+		case 550:
+			for (int i=0; i<lane6.size(); i++) {
+				int x1=mc.getPosX();
+				int y1=mc.getPosY();
+				int x2=lane6.get(i).getPosX()+lane6.get(i).getWidth()/2;
+				int y2=lane6.get(i).getPosY()+lane6.get(i).getHeight()/2;
+				if (PApplet.dist(x1,y1 ,x2 , y2)<mc.getWidth()/2+lane6.get(i).getWidth()/2) {
+					throw new LoseException();
+				}
+			}
+			break;
+		}
+		
+		
 		
 	}
 	
+	public boolean checkWin() {
+		if(mc.getPosY()>=600) {
+			return true;
+		}else {
+			return false;
+		}
+	}
+
+	public void addPlayer(LocalDateTime dateTime, int gameTime) {
+		Player p= new Player(dateTime,gameTime, app);
+		players.add(p);
+		
+	}
+
+	public void drawPlayers() {
+		for (int i = 0; i < players.size(); i++) {
+			players.get(i).draw(75+(i*25));
+		}
+		
+	}
+
+	public void reset() {
+		mc.setPosX(400);
+		mc.setPosY(0);
+	}
 	
 	
 
