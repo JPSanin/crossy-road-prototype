@@ -40,7 +40,7 @@ public class GameView {
 
 	public void initializeElements(String[] input) {
 		controller.initializeElements(input);
-		
+		controller.generateCars();		
 	}
 	
 	

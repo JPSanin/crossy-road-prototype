@@ -20,4 +20,9 @@ public class Controller {
 		
 	}
 
+	public void generateCars() {
+	logic.carGenerator();
+		
+	}
+
 }

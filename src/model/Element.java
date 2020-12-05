@@ -32,6 +32,10 @@ public abstract class Element {
 		return posX;
 	}
 
+	public void setPosX(int posX) {
+		this.posX = posX;
+	}
+
 	public int getPosY() {
 		return posY;
 	}
