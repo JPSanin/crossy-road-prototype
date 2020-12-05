@@ -13,12 +13,12 @@ public class Logic {
 	private ArrayList<Car> cars;
 	private ArrayList<Player> players;
 	
-	ArrayList<Car> lane1;
-	ArrayList<Car> lane2;
-	ArrayList<Car> lane3;
-	ArrayList<Car> lane4;
-	ArrayList<Car> lane5;
-	ArrayList<Car> lane6;
+	private ArrayList<Car> lane1;
+	private ArrayList<Car> lane2;
+	private ArrayList<Car> lane3;
+	private ArrayList<Car> lane4;
+	private ArrayList<Car> lane5;
+	private ArrayList<Car> lane6;
 	
 	private DurationComparator dc;
 	
